@@ -1,2 +1,2 @@
 # gnome-setup
-Set-up for new gnome de setup. (personal)
+Personal setup for new Gnome desktop envoriment linux install
