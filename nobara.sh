@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Nobara install
 echo "Nobara install Script. Removing trash..."
 
