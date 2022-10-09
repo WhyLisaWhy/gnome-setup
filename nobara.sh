@@ -26,6 +26,10 @@ echo -e "\033[1mSystem update comeplete. Installing wanted applications...\033[0
 # package install
 sudo dnf -y install libreoffice ffmpegthumbnailer gthumb yaru-theme cabextract xorg-x11-font-utils deja-dup fish pycharm-community
 
+# veracrypt
+wget "https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-CentOS-8-x86_64.rpm"
+sudo dnf install veracrypt-1.25.9-CentOS-8-x86_64.rpm -y
+
 # change default shell to fish
 chsh -s /usr/bin/fish
 
