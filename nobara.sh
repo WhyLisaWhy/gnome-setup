@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Moving icons
+
+mv /home/$USER/gnome-setup/logo-svg/Nobara-logo.svg /home/$USER/Pictures/Nobara-logo.svg
+
+
 # Nobara install
 echo "Nobara install Script. Removing trash..."
 
@@ -45,3 +50,5 @@ echo "Install complete. Installing extensions"
 gnome-extensions install gsconnect@andyholmes.github.io openweather-extension@jenslody.de 
 
 gnome-extensions uninstall arcmenu@arcmenu.com
+
+
