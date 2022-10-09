@@ -47,7 +47,9 @@ flatpak install flathub com.visualstudio.code -y
 
 echo "Install complete. Installing extensions"
 
-gnome-extensions install gsconnect@andyholmes.github.io openweather-extension@jenslody.de 
+gnome-extensions install gsconnect@andyholmes.github.io 
+
+gnome-extensions install openweather-extension@jenslody.de
 
 gnome-extensions uninstall arcmenu@arcmenu.com
 
