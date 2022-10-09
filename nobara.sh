@@ -19,7 +19,7 @@ timedatectl set-local-rtc 1
 echo "System update comeplete. Installing apps..."
 
 # package install
-sudo dnf -y install libreoffice ffmpegthumbnailer gthumb yaru-theme cabextract xorg-x11-font-utils
+sudo dnf -y install htop libreoffice ffmpegthumbnailer gthumb yaru-theme cabextract xorg-x11-font-utils deja-dup
 
 # noisetorch
 
@@ -36,3 +36,7 @@ sudo setcap 'CAP_SYS_RESOURCE=+ep' ~/.local/bin/noisetorch
 echo "Install complete. Installing flatpaks."
 
 flatpak install flathub com.visualstudio.code -y
+
+echo "Install complete. Installing extensions"
+
+gnome-extensions install gsconnect@andyholmes.github.io openweather-extension@jenslody.de -y
