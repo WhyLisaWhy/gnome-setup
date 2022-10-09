@@ -23,7 +23,7 @@ sudo dnf -y install libreoffice ffmpegthumbnailer gthumb yaru-theme cabextract x
 
 # noisetorch
 
-echo "Installing noisetorch."
+echo "Install complete. Installing noisetorch."
 
 curl -# https://github.com/noisetorch/NoiseTorch/releases/download/v0.12.2/NoiseTorch_x64_v0.12.2.tgz
 
@@ -33,4 +33,6 @@ gtk-update-icon-cache
 
 sudo setcap 'CAP_SYS_RESOURCE=+ep' ~/.local/bin/noisetorch
 
-echo "Install complete."
+echo "Install complete. Installing flatpaks."
+
+flatpak install flathub com.visualstudio.code -y
