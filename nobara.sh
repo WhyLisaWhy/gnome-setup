@@ -51,6 +51,5 @@ gnome-extensions install gsconnect@andyholmes.github.io
 
 gnome-extensions install openweather-extension@jenslody.de
 
-gnome-extensions uninstall arcmenu@arcmenu.com
 
 
