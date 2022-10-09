@@ -19,7 +19,10 @@ timedatectl set-local-rtc 1
 echo "System update comeplete. Installing apps..."
 
 # package install
-sudo dnf -y install htop libreoffice ffmpegthumbnailer gthumb yaru-theme cabextract xorg-x11-font-utils deja-dup
+sudo dnf -y install htop libreoffice ffmpegthumbnailer gthumb yaru-theme cabextract xorg-x11-font-utils deja-dup fish
+
+# change shell to fish
+chsh -s /usr/bin/fish
 
 # noisetorch
 
