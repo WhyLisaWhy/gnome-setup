@@ -23,7 +23,14 @@ timedatectl set-local-rtc 1
 echo -e "\033[1mSystem update comeplete. Installing wanted applications...\033[0m"
 
 # package install
-sudo dnf -y install libreoffice ffmpegthumbnailer gthumb yaru-theme cabextract xorg-x11-font-utils deja-dup fish pycharm-community
+sudo dnf -y install libreoffice ffmpegthumbnailer gthumb yaru-theme cabextract xorg-x11-font-utils deja-dup fish pycharm-community python3-evdev gtksourceview4 python3-devel python3-pydantic python3-pydbus
+sudo dnf group upgrade -y --with-optional Multimedia
+sudo dnf install -y 'google-roboto*' 'mozilla-fira*' fira-code-fonts
+
+#input remapper
+sudo pip install --no-binary :all: git+https://github.com/sezanzeb/input-remapper.git
+sudo systemctl enable input-remapper
+sudo systemctl restart input-remapper
 
 # veracrypt
 wget "https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-CentOS-8-x86_64.rpm"
