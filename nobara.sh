@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# Moving icons
-
+# Moving Nobara icon to Pictures directory for dash-to-panel
 mv /home/$USER/gnome-setup/logo-svg/Nobara-logo.svg /home/$USER/Pictures/Nobara-logo.svg
 
 
@@ -37,7 +36,7 @@ chsh -s /usr/bin/fish
 
 echo -e "\033[1mInstall complete. Installing noisetorch.\033[0m"
 
-curl -# https://github.com/noisetorch/NoiseTorch/releases/download/v0.12.2/NoiseTorch_x64_v0.12.2.tgz
+wget "https://github.com/noisetorch/NoiseTorch/releases/download/v0.12.2/NoiseTorch_x64_v0.12.2.tgz"
 
 tar -C $HOME -h -xzf NoiseTorch_x64_v0.12.2.tgz
 
@@ -45,7 +44,7 @@ gtk-update-icon-cache
 
 sudo setcap 'CAP_SYS_RESOURCE=+ep' ~/.local/bin/noisetorch
 
-echo -e "\033[1mInstall complete. Installing flatpaks.\033[0m"
+echo -e "\033[1mInstall complete. Installing flatpaks. This may take a while...\033[0m"
 
 flatpak install flathub com.visualstudio.code -y
 
