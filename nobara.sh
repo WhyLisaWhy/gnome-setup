@@ -45,11 +45,9 @@ echo "Install complete. Installing flatpaks."
 
 flatpak install flathub com.visualstudio.code -y
 
-echo "Install complete. Installing extensions"
+echo "Install complete."
 
-gnome-extensions install gsconnect@andyholmes.github.io 
 
-gnome-extensions install openweather-extension@jenslody.de
 
 
 
