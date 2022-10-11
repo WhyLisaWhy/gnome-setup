@@ -33,7 +33,7 @@ wget "https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-Ce
 sudo dnf install veracrypt-1.25.9-CentOS-8-x86_64.rpm -y
 
 # change default shell to fish
-chsh -s /usr/bin/fish
+sudo chsh -s /usr/bin/fish
 
 # noisetorch
 
