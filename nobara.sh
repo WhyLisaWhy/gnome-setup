@@ -32,9 +32,6 @@ sudo systemctl restart input-remapper
 wget "https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-CentOS-8-x86_64.rpm"
 sudo dnf install veracrypt-1.25.9-CentOS-8-x86_64.rpm -y
 
-# change default shell to fish
-chsh -s /usr/bin/fish
-
 # noisetorch
 
 echo -e "\033[1mInstall complete. Installing noisetorch.\033[0m"
@@ -49,10 +46,13 @@ sudo setcap 'CAP_SYS_RESOURCE=+ep' ~/.local/bin/noisetorch
 
 echo -e "\033[1mInstall complete. Installing flatpaks. This may take a while...\033[0m"
 
+#vs code
 flatpak install flathub com.visualstudio.code -y
 
+#pycharm
 flatpak install flathub com.jetbrains.PyCharm-Community -y
 
+#discord
 flatpak install flathub com.discordapp.Discord -y
 
 echo -e "\033[1mInstall complete. Moving files...\033[0m"
@@ -60,7 +60,7 @@ echo -e "\033[1mInstall complete. Moving files...\033[0m"
 # Moving Nobara icon to Pictures directory for dash-to-panel
 mv /home/$USER/gnome-setup/logo-svg/Nobara-logo.svg /home/$USER/Pictures/Nobara-logo.svg
 
-echo -e "\033[1mInstall complete. Disable unwanted Extensions...\033[0m"
+echo -e "\033[1mInstall complete. Disabling unwanted gnome extensions, enabling wanted gnome extensions...\033[0m"
 
 #desktop icons
 gnome-extensions disable ding@rastersoft.com 
@@ -68,5 +68,12 @@ gnome-extensions disable ding@rastersoft.com
 #arc menu
 gnome-extensions disable arcmenu@arcmenu.com
 
+#gsconnect
+gnome-extensions enable gsconnect@andyholmes.github.io
 
+#openweather
+gnome-extensions enable openweather-extension@jenslody.de
+
+# change default shell to fish
+chsh -s /usr/bin/fish
 
