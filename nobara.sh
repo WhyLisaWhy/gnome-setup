@@ -54,10 +54,10 @@ elif [ "$DISTRO" == "2" ]
 then
 
 # Pop OS install
-echo "\033[1mNobara install Script. Removing unwanted applications...\033[0m"
+echo "\033[1mPop OS install Script. Removing unwanted applications...\033[0m"
 
 # package remove
-sudo apt-get uninstall cheese rhythmbox totem gnome-photos eog vim -y
+sudo apt-get remove cheese rhythmbox totem gnome-photos eog vim -y
 
 echo -e "\033[1mRemoval complete. Updating System...\033[0m"
 
@@ -68,8 +68,7 @@ flatpak update -y
 echo -e "\033[1mSystem update comeplete. Installing wanted applications...\033[0m"
 
 # package install 
-sudo apt-get install -y util-linux-user pip ffmpegthumbnailer 'google-roboto*' 'mozilla-fira*' fira-code-fonts gthumb yaru-theme cabextract xorg-x11-font-utils deja-dup fish python3-evdev gtksourceview4 python3-devel python3-pydantic python3-pydbus
-
+sudo apt-get install -y pip ffmpegthumbnailer gthumb cabextract deja-dup fish python3-evdev python3-pydantic python3-pydbus ubuntu-restricted-extras
 # veracrypt
 wget "https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-Ubuntu-22.04-amd64.deb"
 sudo apt-get install veracrypt-1.25.9-Ubuntu-22.04-amd64.deb -y
