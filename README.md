@@ -1,5 +1,5 @@
 ## gnome-setup
-Personal setup for new Gnome desktop envoriment linux install
+Personal setup for new Gnome desktop envoriment linux Nobara OS install
 
 ##### Open Terminal, Download repo
 ```bash
