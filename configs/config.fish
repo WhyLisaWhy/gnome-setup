@@ -8,5 +8,5 @@ alias df='df -h'                                           # Human-readable size
 alias free='free -m'                                       # Show sizes in MB
 alias gitu='git add . && git commit && git push'
 alias rm="rm -i"
-alias ls="exa -lah --icons --group-directories-first"
+alias ls="exa -lah --icons --group-directories-first"      # Human-readable
 
