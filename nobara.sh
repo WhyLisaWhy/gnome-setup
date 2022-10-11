@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# Distro choice
+echo "What is your Distro:
+1) Nobara OS
+2) Pop OS"
+
+# user distro input
+read -p "Select a number: " DISTRO
+
+if [ "$DISTRO" == "1" ]
+then
+
 # Nobara install
 echo -e "\033[1mNobara install Script. Removing unwanted applications...\033[0m"
 
@@ -79,3 +90,12 @@ gnome-extensions enable openweather-extension@jenslody.de
 # change default shell to fish
 chsh -s /usr/bin/fish
 
+elif [ "$DISTRO" == "2" ]
+then
+    echo "You chose Pop OS"
+
+
+    
+else
+    echo "Choose 1 or 2 retard"
+fi
