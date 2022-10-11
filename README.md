@@ -7,7 +7,7 @@ git clone https://github.com/WhyLisaWhy/gnome-setup.git
 ```
 ##### Change directory
 ```bash
-cd /gnome-setup
+cd gnome-setup
 ```
 ##### Run Script
 ```bash
