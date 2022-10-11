@@ -33,6 +33,11 @@ sudo dnf group upgrade -y --with-optional Multimedia
 wget "https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-CentOS-8-x86_64.rpm"
 sudo dnf install veracrypt-1.25.9-CentOS-8-x86_64.rpm -y
 
+#input remapper
+echo -e "\033[1mInstall complete. Installing input remapper.\033[0m"
+sudo pip install --no-binary :all: git+https://github.com/sezanzeb/input-remapper.git
+sudo systemctl enable input-remapper
+sudo systemctl restart input-remapper
 
 echo -e "\033[1mInstall complete. Moving files...\033[0m"
 
@@ -69,9 +74,14 @@ echo -e "\033[1mSystem update comeplete. Installing wanted applications...\033[0
 
 # package install 
 sudo apt-get install -y pip ffmpegthumbnailer gthumb cabextract deja-dup fish python3-evdev python3-pydantic python3-pydbus ubuntu-restricted-extras
+
 # veracrypt
 wget "https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-Ubuntu-22.04-amd64.deb"
 sudo apt-get install $HOME/gnome-setup/veracrypt-1.25.9-Ubuntu-22.04-amd64.deb -y
+
+# input remapper
+wget "https://github.com/sezanzeb/input-remapper/releases/download/1.5.0/input-remapper-1.5.0_all.deb"
+sudo apt-get install $HOME/gnome-setup/input-remapper-1.5.0.all.deb -y
 
 # extension manager flatpak
 flatpak install flathub com.mattjakeman.ExtensionManager -y
@@ -105,12 +115,6 @@ flatpak install flathub com.jetbrains.PyCharm-Community -y
 
 #discord
 flatpak install flathub com.discordapp.Discord -y
-
-#input remapper
-echo -e "\033[1mInstall complete. Installing input remapper.\033[0m"
-sudo pip install --no-binary :all: git+https://github.com/sezanzeb/input-remapper.git
-sudo systemctl enable input-remapper
-sudo systemctl restart input-remapper
 
 # noisetorch
 echo -e "\033[1mInstall complete. Installing noisetorch.\033[0m"
