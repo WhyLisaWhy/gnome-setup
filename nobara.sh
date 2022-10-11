@@ -50,9 +50,13 @@ gnome-extensions enable gsconnect@andyholmes.github.io
 #openweather
 gnome-extensions enable openweather-extension@jenslody.de
 
-#!/bin/bash
+elif [ "$DISTRO" == "2" ]
+then
 
-# Distro choice
+# Pop OS install
+echo "\033[1mNobara install Script. Removing unwanted applications...\033[0m"
+
+# package remove
 sudo apt-get uninstall cheese rhythmbox totem gnome-photos eog vim -y
 
 echo -e "\033[1mRemoval complete. Updating System...\033[0m"
