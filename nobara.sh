@@ -33,7 +33,7 @@ wget "https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-Ce
 sudo dnf install veracrypt-1.25.9-CentOS-8-x86_64.rpm -y
 
 # change default shell to fish
-sudo chsh -s /usr/bin/fish
+chsh -s /usr/bin/fish
 
 # noisetorch
 
@@ -52,6 +52,8 @@ echo -e "\033[1mInstall complete. Installing flatpaks. This may take a while...\
 flatpak install flathub com.visualstudio.code -y
 
 flatpak install flathub com.jetbrains.PyCharm-Community -y
+
+flatpak install flathub com.discordapp.Discord -y
 
 echo -e "\033[1mInstall complete. Moving files...\033[0m"
 
