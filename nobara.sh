@@ -54,7 +54,7 @@ elif [ "$DISTRO" == "2" ]
 then
 
 # Pop OS install
-echo "\033[1mPop OS install Script. Removing unwanted applications...\033[0m"
+echo -e "\033[1mPop OS install Script. Removing unwanted applications...\033[0m"
 
 # package remove
 sudo apt-get remove cheese rhythmbox totem gnome-photos eog vim -y
@@ -71,7 +71,7 @@ echo -e "\033[1mSystem update comeplete. Installing wanted applications...\033[0
 sudo apt-get install -y pip ffmpegthumbnailer gthumb cabextract deja-dup fish python3-evdev python3-pydantic python3-pydbus ubuntu-restricted-extras
 # veracrypt
 wget "https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-Ubuntu-22.04-amd64.deb"
-sudo apt-get install veracrypt-1.25.9-Ubuntu-22.04-amd64.deb -y
+sudo apt-get install $HOME/gnome-setup/veracrypt-1.25.9-Ubuntu-22.04-amd64.deb -y
 
 # extension manager flatpak
 flatpak install flathub com.mattjakeman.ExtensionManager -y
