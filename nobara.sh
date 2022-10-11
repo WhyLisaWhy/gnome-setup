@@ -55,9 +55,30 @@ echo -e "\033[1mInstall complete. Installing flatpaks. This may take a while...\
 
 flatpak install flathub com.visualstudio.code -y
 
-echo -e "\033[1mInstall complete.\033[0m"
+echo -e "\033[1mInstall complete. Disable unwanted Extensions...\033[0m"
 
+#desktop icons
+gnome-extensions disable ding@rastersoft.com 
 
+#arc menu
+gnome-extensions disable arcmenu@arcmenu.com
 
+#app menu
+gnome-extensions disable apps-menu@gnome-shell-extensions.gcampax.github.com
+
+#background logo
+gnome-extensions disable background-logo@fedorahosted.org
+
+#launch new instance
+gnome-extensions disable launch-new-instance@gnome-shell-extensions.gcampax.github.com
+
+#place status indicator
+gnome-extensions disable places-menu@gnome-extensions.gcampax.github.org
+
+#supergfctl-gex
+gnome-extensions disable supergtfxctl-gex@asus-linux.org
+
+#window list
+gnome-extensions disable window-list@gnome-shell-extensions.gcampax.github.org
 
 
