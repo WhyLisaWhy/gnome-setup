@@ -11,7 +11,7 @@ cd gnome-setup
 ```
 ##### Run Script
 ```bash
-sudo ./nobara.sh
+./nobara.sh
 ```
 
 ## Import Dash-to-Panel config
