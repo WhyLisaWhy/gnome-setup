@@ -1,14 +1,10 @@
 #!/bin/bash
 
-# Moving Nobara icon to Pictures directory for dash-to-panel
-mv /home/$USER/gnome-setup/logo-svg/Nobara-logo.svg /home/$USER/Pictures/Nobara-logo.svg
-
-
 # Nobara install
 echo -e "\033[1mNobara install Script. Removing unwanted applications...\033[0m"
 
 # package remove
-sudo dnf -y remove onlyoffice-desktopeditors blender obs-studio kdenlive inkscape cheese rhythmbox totem gnome-photos oeg
+sudo dnf -y remove onlyoffice-desktopeditors cheese rhythmbox totem gnome-photos eog
 
 echo -e "\033[1mRemoval complete. Updating System...\033[0m"
 
@@ -22,8 +18,8 @@ timedatectl set-local-rtc 1
 
 echo -e "\033[1mSystem update comeplete. Installing wanted applications...\033[0m"
 
-# package install
-sudo dnf -y install libreoffice ffmpegthumbnailer gthumb yaru-theme cabextract xorg-x11-font-utils deja-dup fish pycharm-community python3-evdev gtksourceview4 python3-devel python3-pydantic python3-pydbus
+# package install 
+sudo dnf -y install util-linux-user pip libreoffice ffmpegthumbnailer gthumb yaru-theme cabextract xorg-x11-font-utils deja-dup fish python3-evdev gtksourceview4 python3-devel python3-pydantic python3-pydbus
 sudo dnf group upgrade -y --with-optional Multimedia
 sudo dnf install -y 'google-roboto*' 'mozilla-fira*' fira-code-fonts
 
@@ -43,7 +39,7 @@ chsh -s /usr/bin/fish
 
 echo -e "\033[1mInstall complete. Installing noisetorch.\033[0m"
 
-wget "https://github.com/noisetorch/NoiseTorch/releases/download/v0.12.2/NoiseTorch_x64_v0.12.2.tgz"
+wget https://github.com/noisetorch/NoiseTorch/releases/download/v0.12.2/NoiseTorch_x64_v0.12.2.tgz
 
 tar -C $HOME -h -xzf NoiseTorch_x64_v0.12.2.tgz
 
@@ -55,6 +51,13 @@ echo -e "\033[1mInstall complete. Installing flatpaks. This may take a while...\
 
 flatpak install flathub com.visualstudio.code -y
 
+flatpak install flathub com.jetbrains.PyCharm-Community -y
+
+echo -e "\033[1mInstall complete. Moving files...\033[0m"
+
+# Moving Nobara icon to Pictures directory for dash-to-panel
+mv /home/$USER/gnome-setup/logo-svg/Nobara-logo.svg /home/$USER/Pictures/Nobara-logo.svg
+
 echo -e "\033[1mInstall complete. Disable unwanted Extensions...\033[0m"
 
 #desktop icons
@@ -63,22 +66,5 @@ gnome-extensions disable ding@rastersoft.com
 #arc menu
 gnome-extensions disable arcmenu@arcmenu.com
 
-#app menu
-gnome-extensions disable apps-menu@gnome-shell-extensions.gcampax.github.com
-
-#background logo
-gnome-extensions disable background-logo@fedorahosted.org
-
-#launch new instance
-gnome-extensions disable launch-new-instance@gnome-shell-extensions.gcampax.github.com
-
-#place status indicator
-gnome-extensions disable places-menu@gnome-extensions.gcampax.github.org
-
-#supergfctl-gex
-gnome-extensions disable supergtfxctl-gex@asus-linux.org
-
-#window list
-gnome-extensions disable window-list@gnome-shell-extensions.gcampax.github.org
 
 
