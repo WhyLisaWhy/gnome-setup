@@ -68,10 +68,10 @@ flatpak install flathub com.discordapp.Discord -y
 echo -e "\033[1mInstall complete. Moving files...\033[0m"
 
 # Moving Nobara icon to Pictures directory for dash-to-panel
-mv /home/$USER/gnome-setup/logo-svg/Nobara-logo.svg /home/$USER/Pictures/Nobara-logo.svg
+mv $HOME/gnome-setup/logo-svg/Nobara-logo.svg /home/$USER/Pictures/Dash-to-panel-icon.svg
 
 # Moving FISH config file
-mv /home/$USER/gnome-setup/configs/config.fish /home/$USER/.config/fish
+mv $HOME/gnome-setup/configs/config.fish $HOME/.config/fish
 
 echo -e "\033[1mInstall complete. Disabling unwanted gnome extensions, enabling wanted gnome extensions...\033[0m"
 
