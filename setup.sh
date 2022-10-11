@@ -81,7 +81,7 @@ sudo apt-get install $HOME/gnome-setup/veracrypt-1.25.9-Ubuntu-22.04-amd64.deb -
 
 # input remapper
 wget "https://github.com/sezanzeb/input-remapper/releases/download/1.5.0/input-remapper-1.5.0_all.deb"
-sudo apt-get install $HOME/gnome-setup/input-remapper-1.5.0.all.deb -y
+sudo apt-get install /home/$USER/gnome-setup/input-remapper-1.5.0.all.deb -y
 
 # extension manager flatpak
 flatpak install flathub com.mattjakeman.ExtensionManager -y
