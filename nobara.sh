@@ -19,9 +19,8 @@ timedatectl set-local-rtc 1
 echo -e "\033[1mSystem update comeplete. Installing wanted applications...\033[0m"
 
 # package install 
-sudo dnf -y install util-linux-user pip libreoffice ffmpegthumbnailer gthumb yaru-theme cabextract xorg-x11-font-utils deja-dup fish python3-evdev gtksourceview4 python3-devel python3-pydantic python3-pydbus
+sudo dnf -y install util-linux-user pip libreoffice ffmpegthumbnailer 'google-roboto*' 'mozilla-fira*' fira-code-fonts gthumb yaru-theme cabextract xorg-x11-font-utils deja-dup fish python3-evdev gtksourceview4 python3-devel python3-pydantic python3-pydbus
 sudo dnf group upgrade -y --with-optional Multimedia
-sudo dnf install -y 'google-roboto*' 'mozilla-fira*' fira-code-fonts
 
 #input remapper
 sudo pip install --no-binary :all: git+https://github.com/sezanzeb/input-remapper.git
@@ -59,6 +58,9 @@ echo -e "\033[1mInstall complete. Moving files...\033[0m"
 
 # Moving Nobara icon to Pictures directory for dash-to-panel
 mv /home/$USER/gnome-setup/logo-svg/Nobara-logo.svg /home/$USER/Pictures/Nobara-logo.svg
+
+# Moving FISH config file
+mv /home/$USER/gnome-setup/configs/config.fish /home/$USER/.config/fish
 
 echo -e "\033[1mInstall complete. Disabling unwanted gnome extensions, enabling wanted gnome extensions...\033[0m"
 
