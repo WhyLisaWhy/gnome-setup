@@ -1,5 +1,5 @@
 ## gnome-setup
-Personal setup for new Gnome desktop envoriment linux Nobara OS install
+Personal setup for new Nobara OS/ Pop OS Gnome Desktop Enviroment
 
 ##### Open Terminal, Download repo
 ```bash
@@ -11,7 +11,7 @@ cd gnome-setup
 ```
 ##### Run Script
 ```bash
-./nobara.sh
+./setup.sh
 ```
 
 ## Import Dash-to-Panel config
