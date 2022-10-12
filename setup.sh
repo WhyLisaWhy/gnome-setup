@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Text Color
-BLU="\e[1;96m"
+BLU="\e[1;96m" # Bold Blue
+RED="\e[1;31m" # Bold Blue
 NC="\e[0m" # No Color
 
 # Distro choice
@@ -106,7 +107,7 @@ gnome-extensions disable pop-cosmic@system76.com
 
  
 else
-    echo "Choose 1 or 2 retard"
+    echo "${RED}Choose 1 or 2 retard${NC}"
 fi
 
 echo -e "${BLU}Install complete. Installing flatpaks. This may take a while...${NC}"
