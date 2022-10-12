@@ -16,7 +16,7 @@ if [ "$DISTRO" == "1" ]
 then
 
 # Nobara install
-echo -e "\033[1m{BLU}Nobara install Script. Removing unwanted applications...{NC}\033[0m"
+echo -e "\033{BLU}Nobara install Script. Removing unwanted applications...{NC}\033[0m"
 
 # package remove
 sudo dnf -y remove onlyoffice-desktopeditors cheese rhythmbox totem gnome-photos eog
