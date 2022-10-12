@@ -42,7 +42,7 @@ sudo systemctl restart input-remapper
 echo -e "\033[1mInstall complete. Moving files...\033[0m"
 
 # Moving Nobara icon to Pictures directory for dash-to-panel
-mv $HOME/gnome-setup/logo-svg/Nobara-logo.svg $HOME/Pictures/Dash-to-panel-icon.svg
+sudo mv $HOME/gnome-setup/logo-svg/Nobara-logo.svg /usr/share/icons/dash-to-panel/Dash-to-panel-icon.svg
 
 echo -e "\033[1mInstall complete. Disabling unwanted gnome extensions, enabling wanted gnome extensions...\033[0m"
 
@@ -87,7 +87,7 @@ sudo apt-get install /home/$USER/gnome-setup/input-remapper-1.5.0.all.deb -y
 flatpak install flathub com.mattjakeman.ExtensionManager -y
 
 # Moving POP icon to Pictures directory for dash-to-panel
-mv $HOME/gnome-setup/logo-svg/Pop-os-logo.svg $HOME/Pictures/Dash-to-panel-icon.svg
+sudo mv $HOME/gnome-setup/logo-svg/Pop-os-logo.svg /usr/share/icons/dash-to-panel/Dash-to-panel-icon.svg
 
 echo -e "\033[1mInstall complete. Disabling unwanted gnome extensions...\033[0m"
 
