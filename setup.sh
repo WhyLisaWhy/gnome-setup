@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Text Color
-BLU='\033[1;34m'
-NC='\033[0m' # No Color
+BLU='[1;34m'
+NC='[0m' # No Color
 
 # Distro choice
 echo "What is your Distro:
