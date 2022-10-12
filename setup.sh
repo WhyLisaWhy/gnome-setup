@@ -44,6 +44,11 @@ then
     sudo systemctl enable input-remapper
     sudo systemctl restart input-remapper
 
+    # onedrive
+    echo -e "${BLU}Install complete. Installing onedriver.${NC}"
+    sudo dnf copr enable jstaf/onedriver -y
+    sudo dnf install onedriver -y
+
     echo -e "${BLU}Install complete. Moving files...${NC}"
 
     # Moving Nobara icon to Pictures directory for dash-to-panel
