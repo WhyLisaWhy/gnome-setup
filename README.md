@@ -25,7 +25,7 @@ Edit configuration: `sudo nano /etc/dnf/dnf.conf`
 
 - Add settings to optimize download speed:
   ```conf
-  max_parallel_downloads=20
+  max_parallel_downloads=10
   ```
 - Add some quality of life settings:
   ```conf
