@@ -35,6 +35,7 @@ then
     sudo dnf group upgrade -y --with-optional Multimedia
 
     # veracrypt
+    echo -e "${BLU}Install complete. Installing veracrypt.${NC}"
     wget "https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-CentOS-8-x86_64.rpm"
     sudo dnf install veracrypt-1.25.9-CentOS-8-x86_64.rpm -y
 
@@ -90,10 +91,19 @@ then
     sudo apt-get install $HOME/gnome-setup/veracrypt-1.25.9-Ubuntu-22.04-amd64.deb -y
 
     # input remapper
+    echo -e "${BLU}Install complete. Installing input remapper.${NC}"
     wget "https://github.com/sezanzeb/input-remapper/releases/download/1.5.0/input-remapper-1.5.0_all.deb"
     sudo apt-get install /home/$USER/gnome-setup/input-remapper-1.5.0.all.deb -y
+    
+    # onedrive
+    echo -e "${BLU}Install complete. Installing onedriver.${NC}"
+    echo 'deb http://download.opensuse.org/repositories/home:/jstaf/xUbuntu_22.04/ /' | sudo tee /etc/apt/sources.list.d/home:jstaf.list
+    curl -fsSL https://download.opensuse.org/repositories/home:jstaf/xUbuntu_22.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_jstaf.gpg > /dev/null
+    sudo apt update
+    sudo apt install onedriver
 
     # extension manager flatpak
+    echo -e "${BLU}Install complete. Installing extension manager.${NC}"
     flatpak install flathub com.mattjakeman.ExtensionManager -y
 
     # Moving POP icon to Pictures directory for dash-to-panel
