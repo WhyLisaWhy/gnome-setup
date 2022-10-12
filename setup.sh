@@ -50,10 +50,13 @@ then
     sudo dnf copr enable jstaf/onedriver -y
     sudo dnf install onedriver -y
 
-    echo -e "${BLU}Install complete. Moving files...${NC}"
-
     # Moving Nobara icon to Pictures directory for dash-to-panel
+    echo -e "${BLU}Install complete. Moving files...${NC}"
     sudo mv $HOME/gnome-setup/logo-svg/Nobara-logo.svg /usr/share/icons/Dash-to-panel-icon.svg
+    
+    # hostname
+    echo -e "${BLU}Files moved to correct locations. Setting hostname...${NC}"
+    sudo hostnamectl set-hostname nobara-5800x
 
     echo -e "${BLU}Install complete. Disabling unwanted gnome extensions, enabling wanted gnome extensions...${NC}"
 
@@ -106,8 +109,14 @@ then
     echo -e "${BLU}Install complete. Installing extension manager.${NC}"
     flatpak install flathub com.mattjakeman.ExtensionManager -y
 
+    echo -e "${BLU}Install complete. Moving files...${NC}"
+    
     # Moving POP icon to Pictures directory for dash-to-panel
     sudo mv $HOME/gnome-setup/logo-svg/Pop-os-logo.svg /usr/share/icons/Dash-to-panel-icon.svg
+    
+    # hostname
+    echo -e "${BLU}Files moved to correct locations. Setting hostname...${NC}"
+    sudo hostnamectl set-hostname pop-5800x
 
     echo -e "${BLU}Install complete. Disabling unwanted gnome extensions...${NC}"
 
