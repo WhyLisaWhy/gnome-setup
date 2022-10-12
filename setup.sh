@@ -2,7 +2,7 @@
 
 # Text Color
 BLU="\e[1;96m" # Bold Blue
-RED="\e[1;31m" # Bold Blue
+RED="\e[1;31m" # Bold Red
 NC="\e[0m" # No Color
 
 # Distro choice
@@ -16,109 +16,109 @@ read -p "Select a number: " DISTRO
 if [ "$DISTRO" == "1" ]
 then
 
-# Nobara install
-echo -e "${BLU}Nobara install Script. Removing unwanted applications...${NC}"
+    # Nobara install
+    echo -e "${BLU}Nobara install Script. Removing unwanted applications...${NC}"
 
-# package remove
-sudo dnf -y remove onlyoffice-desktopeditors cheese rhythmbox totem gnome-photos eog
+    # package remove
+    sudo dnf -y remove onlyoffice-desktopeditors cheese rhythmbox totem gnome-photos eog
 
-echo -e "${BLU}Removal complete. Updating System...${NC}"
+    echo -e "${BLU}Removal complete. Updating System...${NC}"
 
-# system update
-sudo dnf upgrade -y
-flatpak update -y
+    # system update
+    sudo dnf upgrade -y
+    flatpak update -y
 
-echo -e "${BLU}System update comeplete. Installing wanted applications...${NC}"
+    echo -e "${BLU}System update comeplete. Installing wanted applications...${NC}"
 
-# package install 
-sudo dnf -y install util-linux-user pip libreoffice ffmpegthumbnailer 'google-roboto*' 'mozilla-fira*' fira-code-fonts gthumb yaru-theme cabextract xorg-x11-font-utils deja-dup fish python3-evdev gtksourceview4 python3-devel python3-pydantic python3-pydbus
-sudo dnf group upgrade -y --with-optional Multimedia
+    # package install
+    sudo dnf -y install util-linux-user pip libreoffice ffmpegthumbnailer 'google-roboto*' 'mozilla-fira*' fira-code-fonts gthumb yaru-theme cabextract xorg-x11-font-utils deja-dup fish python3-evdev gtksourceview4 python3-devel python3-pydantic python3-pydbus
+    sudo dnf group upgrade -y --with-optional Multimedia
 
-# veracrypt
-wget "https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-CentOS-8-x86_64.rpm"
-sudo dnf install veracrypt-1.25.9-CentOS-8-x86_64.rpm -y
+    # veracrypt
+    wget "https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-CentOS-8-x86_64.rpm"
+    sudo dnf install veracrypt-1.25.9-CentOS-8-x86_64.rpm -y
 
-#input remapper
-echo -e "${BLU}Install complete. Installing input remapper.${NC}"
-sudo pip install --no-binary :all: git+https://github.com/sezanzeb/input-remapper.git
-sudo systemctl enable input-remapper
-sudo systemctl restart input-remapper
+    # input remapper
+    echo -e "${BLU}Install complete. Installing input remapper.${NC}"
+    sudo pip install --no-binary :all: git+https://github.com/sezanzeb/input-remapper.git
+    sudo systemctl enable input-remapper
+    sudo systemctl restart input-remapper
 
-echo -e "${BLU}Install complete. Moving files...${NC}"
+    echo -e "${BLU}Install complete. Moving files...${NC}"
 
-# Moving Nobara icon to Pictures directory for dash-to-panel
-sudo mv $HOME/gnome-setup/logo-svg/Nobara-logo.svg /usr/share/icons/Dash-to-panel-icon.svg
+    # Moving Nobara icon to Pictures directory for dash-to-panel
+    sudo mv $HOME/gnome-setup/logo-svg/Nobara-logo.svg /usr/share/icons/Dash-to-panel-icon.svg
 
-echo -e "${BLU}Install complete. Disabling unwanted gnome extensions, enabling wanted gnome extensions...${NC}"
+    echo -e "${BLU}Install complete. Disabling unwanted gnome extensions, enabling wanted gnome extensions...${NC}"
 
-#arc menu
-gnome-extensions disable arcmenu@arcmenu.com
+    # arc menu
+    gnome-extensions disable arcmenu@arcmenu.com
 
-#gsconnect
-gnome-extensions enable gsconnect@andyholmes.github.io
+    # gsconnect
+    gnome-extensions enable gsconnect@andyholmes.github.io
 
-#openweather
-gnome-extensions enable openweather-extension@jenslody.de
+    # openweather
+    gnome-extensions enable openweather-extension@jenslody.de
 
 elif [ "$DISTRO" == "2" ]
 then
 
-# Pop OS install
-echo -e "${BLU}Pop OS install Script. Removing unwanted applications...${NC}"
+    # Pop OS install
+    echo -e "${BLU}Pop OS install Script. Removing unwanted applications...${NC}"
 
-# package remove
-sudo apt-get remove cheese rhythmbox totem gnome-photos eog vim -y
+    # package remove
+    sudo apt-get remove cheese rhythmbox totem gnome-photos eog vim -y
 
-echo -e "${BLU}Removal complete. Updating System...${NC}"
+    echo -e "${BLU}Removal complete. Updating System...${NC}"
 
-# system update
-sudo apt-get update && sudo apt-get full-upgrade -y
-flatpak update -y
+    # system update
+    sudo apt-get update && sudo apt-get full-upgrade -y
+    flatpak update -y
 
-echo -e "${BLU}System update comeplete. Installing wanted applications...${NC}"
+    echo -e "${BLU}System update comeplete. Installing wanted applications...${NC}"
 
-# package install 
-sudo apt-get install -y pip ffmpegthumbnailer gthumb cabextract deja-dup fish python3-evdev python3-pydantic python3-pydbus ubuntu-restricted-extras
+    # package install
+    sudo apt-get install -y pip ffmpegthumbnailer gthumb cabextract deja-dup fish python3-evdev python3-pydantic python3-pydbus ubuntu-restricted-extras
 
-# veracrypt
-wget "https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-Ubuntu-22.04-amd64.deb"
-sudo apt-get install $HOME/gnome-setup/veracrypt-1.25.9-Ubuntu-22.04-amd64.deb -y
+    # veracrypt
+    wget "https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-Ubuntu-22.04-amd64.deb"
+    sudo apt-get install $HOME/gnome-setup/veracrypt-1.25.9-Ubuntu-22.04-amd64.deb -y
 
-# input remapper
-wget "https://github.com/sezanzeb/input-remapper/releases/download/1.5.0/input-remapper-1.5.0_all.deb"
-sudo apt-get install /home/$USER/gnome-setup/input-remapper-1.5.0.all.deb -y
+    # input remapper
+    wget "https://github.com/sezanzeb/input-remapper/releases/download/1.5.0/input-remapper-1.5.0_all.deb"
+    sudo apt-get install /home/$USER/gnome-setup/input-remapper-1.5.0.all.deb -y
 
-# extension manager flatpak
-flatpak install flathub com.mattjakeman.ExtensionManager -y
+    # extension manager flatpak
+    flatpak install flathub com.mattjakeman.ExtensionManager -y
 
-# Moving POP icon to Pictures directory for dash-to-panel
-sudo mv $HOME/gnome-setup/logo-svg/Pop-os-logo.svg /usr/share/icons/Dash-to-panel-icon.svg
+    # Moving POP icon to Pictures directory for dash-to-panel
+    sudo mv $HOME/gnome-setup/logo-svg/Pop-os-logo.svg /usr/share/icons/Dash-to-panel-icon.svg
 
-echo -e "${BLU}Install complete. Disabling unwanted gnome extensions...${NC}"
+    echo -e "${BLU}Install complete. Disabling unwanted gnome extensions...${NC}"
 
-# cosmic dock
-gnome-extensions disable cosmic-dock@system76.com 
-    
-# cosmic workspaces
-gnome-extensions disable cosmic-workspaces@system76.com
+    # cosmic dock
+    gnome-extensions disable cosmic-dock@system76.com
 
-# pop cosmic
-gnome-extensions disable pop-cosmic@system76.com
+    # cosmic workspaces
+    gnome-extensions disable cosmic-workspaces@system76.com
 
- 
+    # pop cosmic
+    gnome-extensions disable pop-cosmic@system76.com
+
+
 else
-    echo "${RED}Choose 1 or 2 retard${NC}"
+    echo "${RED}Choose 1 or 2 retard. Re-run the script.${NC}"
 fi
 
 echo -e "${BLU}Install complete. Installing flatpaks. This may take a while...${NC}"
 
-#vs code
+# vs code
 flatpak install flathub com.visualstudio.code -y
 
-#pycharm
+# pycharm
 flatpak install flathub com.jetbrains.PyCharm-Community -y
 
-#discord
+# discord
 flatpak install flathub com.discordapp.Discord -y
 
 # noisetorch
@@ -142,7 +142,7 @@ mv $HOME/gnome-setup/configs/config.fish $HOME/.config/fish
 # change default shell to fish
 chsh -s /usr/bin/fish
 
-#desktop icons
-gnome-extensions disable ding@rastersoft.com 
+# desktop icons
+gnome-extensions disable ding@rastersoft.com
 
 echo -e "${BLU}COMPLETE.${NC}"
