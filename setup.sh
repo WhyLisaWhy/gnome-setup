@@ -31,7 +31,7 @@ then
     echo -e "${BLU}System update comeplete. Installing wanted applications...${NC}"
 
     # package install
-    sudo dnf -y install util-linux-user pip libreoffice ffmpegthumbnailer 'google-roboto*' 'mozilla-fira*' fira-code-fonts gthumb yaru-theme cabextract xorg-x11-font-utils deja-dup fish python3-evdev gtksourceview4 python3-devel python3-pydantic python3-pydbus
+    sudo dnf -y install util-linux-user pip libreoffice ffmpegthumbnailer 'google-roboto*' 'mozilla-fira*' fira-code-fonts gthumb yaru-theme cabextract xorg-x11-font-utils pam-u2f pamu2fcfg deja-dup fish python3-evdev gtksourceview4 python3-devel python3-pydantic python3-pydbus
     sudo dnf group upgrade -y --with-optional Multimedia
 
     # veracrypt
@@ -84,7 +84,7 @@ then
     echo -e "${BLU}System update comeplete. Installing wanted applications...${NC}"
 
     # package install
-    sudo apt-get install -y pip ffmpegthumbnailer gthumb cabextract deja-dup fish python3-evdev python3-pydantic python3-pydbus ubuntu-restricted-extras
+    sudo apt-get install -y pip ffmpegthumbnailer gthumb cabextract pam-u2f pamu2fcfg deja-dup fish python3-evdev python3-pydantic python3-pydbus ubuntu-restricted-extras
 
     # veracrypt
     wget "https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-Ubuntu-22.04-amd64.deb"
