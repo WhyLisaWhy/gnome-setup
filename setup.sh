@@ -75,7 +75,14 @@ then
     # applying yaru cursor
     gsettings set org.gnome.desktop.interface cursor-theme Yaru
     
+    # clock settings
+    gsettings set org.gnome.desktop.interface clock-show-weekday 
     
+    # legacy application theme
+    gsettings set org.gnome.desktop.interface gtk-theme Yaru-blue-dark
+    
+    # sound theme setting
+    gsettings set org.gnome.desktop.sound theme-name Yaru
 
 elif [ "$DISTRO" == "2" ]
 then
