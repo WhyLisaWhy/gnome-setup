@@ -83,6 +83,9 @@ then
     
     # sound theme setting
     gsettings set org.gnome.desktop.sound theme-name Yaru
+    
+    # load dash to panel settings
+    dconf load /org/gnome/shell/extensions/dash-to-panel/ < $HOME/gnome-setup/configs/dash-to-panel-config
 
 elif [ "$DISTRO" == "2" ]
 then
