@@ -145,6 +145,8 @@ then
     # pop cosmic
     gnome-extensions disable pop-cosmic@system76.com
 
+    #increase parallel download
+    sed -i 's/max_parallel_downloads=6/max_parallel_downloads=10/' /etc/dnf/dnf.conf
 
 else
     echo "${RED}Choose 1 or 2 retard. Re-run the script.${NC}"
