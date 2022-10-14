@@ -84,8 +84,6 @@ then
     # sound theme setting
     gsettings set org.gnome.desktop.sound theme-name Yaru
     
-    # load dash to panel settings
-    dconf load /org/gnome/shell/extensions/dash-to-panel/ < $HOME/gnome-setup/configs/dash-to-panel-config
 
 elif [ "$DISTRO" == "2" ]
 then
@@ -186,5 +184,8 @@ chsh -s /usr/bin/fish
 
 # desktop icons
 gnome-extensions disable ding@rastersoft.com
+
+# load dash to panel settings
+dconf load /org/gnome/shell/extensions/dash-to-panel/ < $HOME/gnome-setup/configs/dash-to-panel-config
 
 echo -e "${BLU}COMPLETE.${NC}"
