@@ -87,8 +87,8 @@ then
     # increase parallel download
     sudo sed -i 's/max_parallel_downloads=6/max_parallel_downloads=10/' /etc/dnf/dnf.conf
     
-    # default to yes
-    sudo echo 'three line' >> /etc/dnf/dnf.conf
+    # default dnf to yes
+    sudo echo 'defaultyes=True' >> /etc/dnf/dnf.conf
 
 elif [ "$DISTRO" == "2" ]
 then
