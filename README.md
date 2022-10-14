@@ -14,13 +14,15 @@ cd gnome-setup
 ./setup.sh
 ```
 
-### Import Dash-to-Panel config
+### Import Dash-to-Panel config 
+***No longer necessary, now done automatically***
 ```bash
 Right click Panel -> Dash to Panel Settings -> About -> Import from file
 Import file gnome-setup/configs/dash-to-panel-config
 ```
 
-### DNF config
+### DNF config 
+***No longer necessary, now done automatically***
 Edit configuration: `sudo nano /etc/dnf/dnf.conf`
 
 - Add settings to optimize download speed:
