@@ -23,6 +23,7 @@ Import file gnome-setup/configs/dash-to-panel-config
 
 ### DNF config 
 ***No longer necessary, now done automatically***
+
 Edit configuration: `sudo nano /etc/dnf/dnf.conf`
 
 - Add settings to optimize download speed:
