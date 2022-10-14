@@ -84,6 +84,11 @@ then
     # sound theme setting
     gsettings set org.gnome.desktop.sound theme-name Yaru
     
+    # increase parallel download
+    sudo sed -i 's/max_parallel_downloads=6/max_parallel_downloads=10/' /etc/dnf/dnf.conf
+    
+    # default to yes
+    sudo echo 'three line' >> /etc/dnf/dnf.conf
 
 elif [ "$DISTRO" == "2" ]
 then
@@ -145,9 +150,7 @@ then
     # pop cosmic
     gnome-extensions disable pop-cosmic@system76.com
 
-    #increase parallel download
-    sed -i 's/max_parallel_downloads=6/max_parallel_downloads=10/' /etc/dnf/dnf.conf
-
+ 
 else
     echo "${RED}Choose 1 or 2 retard. Re-run the script.${NC}"
 fi
