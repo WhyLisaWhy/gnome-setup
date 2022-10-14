@@ -68,6 +68,14 @@ then
 
     # openweather
     gnome-extensions enable openweather-extension@jenslody.de
+    
+    # applying yaru icons
+    gsettings set org.gnome.desktop.interface icon-theme Yaru-blue-dark
+    
+    # applying yaru cursor
+    gsettings set org.gnome.desktop.interface cursor-theme Yaru
+    
+    
 
 elif [ "$DISTRO" == "2" ]
 then
