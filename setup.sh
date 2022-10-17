@@ -82,7 +82,7 @@ then
     sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gsettings set org.gnome.desktop.interface cursor-theme Yaru
 
     # clock settings
-    sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gsettings set org.gnome.desktop.interface clock-show-weekday
+    sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gsettings set org.gnome.desktop.interface clock-show-weekday true
 
     # legacy application theme
     sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gsettings set org.gnome.desktop.interface gtk-theme Yaru-blue-dark
@@ -94,7 +94,7 @@ then
     ed -i 's/max_parallel_downloads=6/max_parallel_downloads=10/' /etc/dnf/dnf.conf
 
     # default dnf to yes
-    echo defaultyes=True | sudo tee -a /etc/dnf/dnf.conf
+    #echo defaultyes=True | sudo tee -a /etc/dnf/dnf.conf
 
 elif [ "$DISTRO" == "2" ]
 then
@@ -202,7 +202,7 @@ sudo -u ${RUID} chsh -s /usr/bin/fish
 sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gnome-extensions disable ding@rastersoft.com
 
 # just perfection
-sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gnome-extension enable just-perfection-desktop@just-perfection.com
+sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gnome-extensions enable just-perfection-desktop@just-perfection
 
 # load dash to panel settings
 sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" dconf load /org/gnome/shell/extensions/dash-to-panel/ < /home/${RUID}/gnome-setup/configs/dash-to-panel-config
