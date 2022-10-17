@@ -26,6 +26,7 @@ Installs packages libreoffice ffmpegthumbnailer gthumb timeshift yaru-theme cabe
   xorg-x11-font-utils pam-u2f pamu2fcfg deja-dup fish python3-evdev gtksourceview4 python3-devel 
   python3-pydantic python3-pydbus veracrypt noisetorch input-remapper pycharm onedriver vscode
   gthumb fish-sh discord
+  
 Installs fonts google-roboto mozilla-fira fira-code-fonts
 
 Enables gnome-extensions gsconnect openweather just perfection
@@ -41,6 +42,7 @@ Loads dash-to-panel config
 
  
 ### Gnome Extensions must have
+- [Just Perfection](https://extensions.gnome.org//extension/3843/just-perfection/): Tweak Tool to Customize GNOME Shell, Change the Behavior and Disable UI Elements
 - [AppIndicator and KStatusNotifierItem Support](https://extensions.gnome.org/extension/615/appindicator-support/): Adds AppIndicator, KStatusNotifierItem and legacy Tray icons support to the Shell
 - [GSConnect](https://extensions.gnome.org/extension/1319/gsconnect/): GSConnect is a complete implementation of KDE Connect especially for GNOME Shell with Nautilus, Chrome and Firefox integration. It does not rely on the KDE Connect desktop application and will not work with it installed.
 - [Status Area Horizontal Spacing](https://extensions.gnome.org/extension/355/status-area-horizontal-spacing/): Reduce the horizontal spacing between icons in the top-right status area
