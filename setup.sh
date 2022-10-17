@@ -5,16 +5,11 @@ BLU="\e[1;96m" # Bold Blue
 RED="\e[1;31m" # Bold Red
 NC="\e[0m" # No Color
 
-# TEST
 # Get the Real Username
 RUID=$(who | awk 'FNR == 1 {print $1}')
 
 # Translate Real Username to Real User ID
 RUSER_UID=$(id -u ${RUID})
-
-# END TEST
-
-
 
 # Distro choice
 echo "What is your Distro:
@@ -23,7 +18,6 @@ echo "What is your Distro:
 
 # user distro input
 read -p "Select a number: " DISTRO
-
 
 if [ "$DISTRO" == "1" ]
 then
@@ -154,20 +148,21 @@ then
     echo -e "${BLU}Install complete. Disabling unwanted gnome extensions...${NC}"
 
     # cosmic dock
-    gnome-extensions disable cosmic-dock@system76.com
+    sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gnome-extensions disable cosmic-dock@system76.com
 
     # cosmic workspaces
-    gnome-extensions disable cosmic-workspaces@system76.com
+    sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gnome-extensions disable cosmic-workspaces@system76.com
 
     # pop cosmic
-    gnome-extensions disable pop-cosmic@system76.com
+    sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gnome-extensions disable pop-cosmic@system76.com
 
- 
-else
+ else
     echo "${RED}Choose 1 or 2 retard. Re-run the script.${NC}"
     
-    
-fi
+    # return to distro select
+    exec bash "$0" "$@"
+
+    fi
 
 echo -e "${BLU}Install complete. Installing flatpaks. This may take a while...${NC}"
 
@@ -196,7 +191,7 @@ timedatectl set-local-rtc 1
 
 # Moving FISH config file
 echo -e "${BLU}Moving files.${NC}"
-mv $HOME/gnome-setup/configs/config.fish $HOME/.config/fish
+sudo -u ${RUID} mv $HOME/gnome-setup/configs/config.fish $HOME/.config/fish
 
 # change default shell to fish
 chsh -s /usr/bin/fish
