@@ -12,9 +12,9 @@ RUID=$(who | awk 'FNR == 1 {print $1}')
 RUSER_UID=$(id -u ${RUID})
 
 # Distro choice
-echo "What is your Distro:
+echo "${BLU}What is your Distro:
 1) Nobara OS
-2) Pop OS"
+2) Pop OS${NC}"
 
 # user distro input
 read -p "Select a number: " DISTRO
@@ -26,12 +26,17 @@ then
     echo -e "${BLU}Nobara install Script. Removing unwanted applications...${NC}"
 
     # package remove
-    sudo dnf -y remove onlyoffice-desktopeditors cheese rhythmbox totem gnome-photos eog
+    dnf -y remove onlyoffice-desktopeditors cheese rhythmbox totem gnome-photos eog
 
-    echo -e "${BLU}Removal complete. Updating System...${NC}"
+    # increase parallel download
+    ed -i 's/max_parallel_downloads=6/max_parallel_downloads=10/' /etc/dnf/dnf.conf
+
+    # default dnf to yes
+    echo defaultyes=True | sudo tee -a /etc/dnf/dnf.conf
 
     # system update
-    sudo dnf upgrade -y
+    echo -e "${BLU}Removal complete. Updating System...${NC}"
+    dnf upgrade -y
     flatpak update -y
 
     echo -e "${BLU}System update comeplete. Installing wanted applications...${NC}"
@@ -90,11 +95,7 @@ then
     # sound theme setting
     sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gsettings set org.gnome.desktop.sound theme-name Yaru
 
-    # increase parallel download
-    ed -i 's/max_parallel_downloads=6/max_parallel_downloads=10/' /etc/dnf/dnf.conf
 
-    # default dnf to yes
-    #echo defaultyes=True | sudo tee -a /etc/dnf/dnf.conf
 
 elif [ "$DISTRO" == "2" ]
 then
