@@ -5,6 +5,15 @@ BLU="\e[1;96m" # Bold Blue
 RED="\e[1;31m" # Bold Red
 NC="\e[0m" # No Color
 
+# TEST
+# Get the Real Username
+RUID=$(who | awk 'FNR == 1 {print $1}')
+
+# Translate Real Username to Real User ID
+RUSER_UID=$(id -u ${RUID})
+
+# END TEST
+
 # Distro choice
 echo "What is your Distro:
 1) Nobara OS
@@ -61,28 +70,28 @@ then
     echo -e "${BLU}Install complete. Disabling unwanted gnome extensions, enabling wanted gnome extensions...${NC}"
 
     # arc menu
-    gnome-extensions disable arcmenu@arcmenu.com
+    sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gnome-extensions disable arcmenu@arcmenu.com
 
     # gsconnect
-    gnome-extensions enable gsconnect@andyholmes.github.io
+    sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gnome-extensions enable gsconnect@andyholmes.github.io
 
     # openweather
-    gnome-extensions enable openweather-extension@jenslody.de
+    sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gnome-extensions enable openweather-extension@jenslody.de
     
     # applying yaru icons
-    gsettings set org.gnome.desktop.interface icon-theme Yaru-blue-dark
+    sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gsettings set org.gnome.desktop.interface icon-theme Yaru-blue-dark
     
     # applying yaru cursor
-    gsettings set org.gnome.desktop.interface cursor-theme Yaru
+    sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gsettings set org.gnome.desktop.interface cursor-theme Yaru
     
     # clock settings
-    gsettings set org.gnome.desktop.interface clock-show-weekday 
+    sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gsettings set org.gnome.desktop.interface clock-show-weekday 
     
     # legacy application theme
-    gsettings set org.gnome.desktop.interface gtk-theme Yaru-blue-dark
+    sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gsettings set org.gnome.desktop.interface gtk-theme Yaru-blue-dark
     
     # sound theme setting
-    gsettings set org.gnome.desktop.sound theme-name Yaru
+    sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gsettings set org.gnome.desktop.sound theme-name Yaru
     
     # increase parallel download
     sudo sed -i 's/max_parallel_downloads=6/max_parallel_downloads=10/' /etc/dnf/dnf.conf
@@ -188,7 +197,7 @@ mv $HOME/gnome-setup/configs/config.fish $HOME/.config/fish
 chsh -s /usr/bin/fish
 
 # desktop icons
-gnome-extensions disable ding@rastersoft.com
+sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gnome-extensions disable ding@rastersoft.com
 
 # load dash to panel settings
 dconf load /org/gnome/shell/extensions/dash-to-panel/ < $HOME/gnome-setup/configs/dash-to-panel-config
