@@ -37,32 +37,32 @@ then
     echo -e "${BLU}System update comeplete. Installing wanted applications...${NC}"
 
     # package install
-    sudo dnf -y install util-linux-user pip libreoffice ffmpegthumbnailer 'google-roboto*' 'mozilla-fira*' fira-code-fonts gthumb timeshift yaru-theme cabextract xorg-x11-font-utils pam-u2f pamu2fcfg deja-dup fish python3-evdev gtksourceview4 python3-devel python3-pydantic python3-pydbus
-    sudo dnf group upgrade -y --with-optional Multimedia
+    dnf -y install util-linux-user pip libreoffice ffmpegthumbnailer 'google-roboto*' 'mozilla-fira*' fira-code-fonts gthumb timeshift yaru-theme cabextract xorg-x11-font-utils pam-u2f pamu2fcfg deja-dup fish python3-evdev gtksourceview4 python3-devel python3-pydantic python3-pydbus
+    dnf group upgrade -y --with-optional Multimedia
 
     # veracrypt
     echo -e "${BLU}Install complete. Installing veracrypt.${NC}"
     wget "https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-CentOS-8-x86_64.rpm"
-    sudo dnf install veracrypt-1.25.9-CentOS-8-x86_64.rpm -y
+    dnf install veracrypt-1.25.9-CentOS-8-x86_64.rpm -y
 
     # input remapper
     echo -e "${BLU}Install complete. Installing input remapper.${NC}"
-    sudo pip install --no-binary :all: git+https://github.com/sezanzeb/input-remapper.git
-    sudo systemctl enable input-remapper
-    sudo systemctl restart input-remapper
+    pip install --no-binary :all: git+https://github.com/sezanzeb/input-remapper.git
+    systemctl enable input-remapper
+    systemctl restart input-remapper
 
     # onedrive
     echo -e "${BLU}Install complete. Installing onedriver.${NC}"
-    sudo dnf copr enable jstaf/onedriver -y
-    sudo dnf install onedriver -y
+    dnf copr enable jstaf/onedriver -y
+    dnf install onedriver -y
 
     # Moving Nobara icon to Pictures directory for dash-to-panel
     echo -e "${BLU}Install complete. Moving files...${NC}"
-    sudo mv $HOME/gnome-setup/logo-svg/Nobara-logo.svg /usr/share/icons/Dash-to-panel-icon.svg
+    mv /home/${RUID}/gnome-setup/logo-svg/Nobara-logo.svg /usr/share/icons/Dash-to-panel-icon.svg
 
     # hostname
     echo -e "${BLU}Files moved to correct locations. Setting hostname...${NC}"
-    sudo hostnamectl set-hostname nobara-5800x
+    hostnamectl set-hostname nobara-5800x
 
     echo -e "${BLU}Install complete. Disabling unwanted gnome extensions, enabling wanted gnome extensions...${NC}"
 
@@ -91,7 +91,7 @@ then
     sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gsettings set org.gnome.desktop.sound theme-name Yaru
 
     # increase parallel download
-    sudo sed -i 's/max_parallel_downloads=6/max_parallel_downloads=10/' /etc/dnf/dnf.conf
+    ed -i 's/max_parallel_downloads=6/max_parallel_downloads=10/' /etc/dnf/dnf.conf
 
     # default dnf to yes
     echo defaultyes=True | sudo tee -a /etc/dnf/dnf.conf
@@ -103,34 +103,34 @@ then
     echo -e "${BLU}Pop OS install Script. Removing unwanted applications...${NC}"
 
     # package remove
-    sudo apt-get remove cheese rhythmbox totem gnome-photos eog vim -y
+    apt-get remove cheese rhythmbox totem gnome-photos eog vim -y
 
     echo -e "${BLU}Removal complete. Updating System...${NC}"
 
     # system update
-    sudo apt-get update && sudo apt-get full-upgrade -y
+    apt-get update && sudo apt-get full-upgrade -y
     flatpak update -y
 
     echo -e "${BLU}System update comeplete. Installing wanted applications...${NC}"
 
     # package install
-    sudo apt-get install -y pip ffmpegthumbnailer gthumb cabextract pam-u2f pamu2fcfg deja-dup fish python3-evdev python3-pydantic python3-pydbus ubuntu-restricted-extras
+    apt-get install -y pip ffmpegthumbnailer gthumb cabextract pam-u2f pamu2fcfg deja-dup fish python3-evdev python3-pydantic python3-pydbus ubuntu-restricted-extras
 
     # veracrypt
     wget "https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-1.25.9-Ubuntu-22.04-amd64.deb"
-    sudo apt-get install $HOME/gnome-setup/veracrypt-1.25.9-Ubuntu-22.04-amd64.deb -y
+    apt-get install /home/${RUID}/gnome-setup/veracrypt-1.25.9-Ubuntu-22.04-amd64.deb -y
 
     # input remapper
     echo -e "${BLU}Install complete. Installing input remapper.${NC}"
     wget "https://github.com/sezanzeb/input-remapper/releases/download/1.5.0/input-remapper-1.5.0_all.deb"
-    sudo apt-get install /home/$USER/gnome-setup/input-remapper-1.5.0.all.deb -y
+    apt-get install /home/$USER/gnome-setup/input-remapper-1.5.0.all.deb -y
 
     # onedrive
     echo -e "${BLU}Install complete. Installing onedriver.${NC}"
     echo 'deb http://download.opensuse.org/repositories/home:/jstaf/xUbuntu_22.04/ /' | sudo tee /etc/apt/sources.list.d/home:jstaf.list
     curl -fsSL https://download.opensuse.org/repositories/home:jstaf/xUbuntu_22.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_jstaf.gpg > /dev/null
-    sudo apt update
-    sudo apt install onedriver
+    apt update
+    apt install onedriver
 
     # extension manager flatpak
     echo -e "${BLU}Install complete. Installing extension manager.${NC}"
@@ -139,11 +139,11 @@ then
     echo -e "${BLU}Install complete. Moving files...${NC}"
 
     # Moving POP icon to Pictures directory for dash-to-panel
-    sudo mv $HOME/gnome-setup/logo-svg/Pop-os-logo.svg /usr/share/icons/Dash-to-panel-icon.svg
+    mv /home/${RUID}/gnome-setup/logo-svg/Pop-os-logo.svg /usr/share/icons/Dash-to-panel-icon.svg
 
     # hostname
     echo -e "${BLU}Files moved to correct locations. Setting hostname...${NC}"
-    sudo hostnamectl set-hostname pop-5800x
+    hostnamectl set-hostname pop-5800x
 
     echo -e "${BLU}Install complete. Disabling unwanted gnome extensions...${NC}"
 
@@ -157,9 +157,9 @@ then
     sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gnome-extensions disable pop-cosmic@system76.com
 
 else
-    echo "${RED}
+    echo "
     Choose 1 or 2 retard. Re-running the script.
-    ${NC}"
+    "
 
     # return to distro select
     exec bash "$0"
@@ -182,18 +182,18 @@ echo -e "${BLU}Install complete. Installing noisetorch.${NC}"
 
 wget https://github.com/noisetorch/NoiseTorch/releases/download/v0.12.2/NoiseTorch_x64_v0.12.2.tgz
 
-tar -C $HOME -h -xzf NoiseTorch_x64_v0.12.2.tgz
+tar -C /home/${RUID} -h -xzf NoiseTorch_x64_v0.12.2.tgz
 
-sudo -u ${RUID} gtk-update-icon-cache
+sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gtk-update-icon-cache
 
-sudo setcap 'CAP_SYS_RESOURCE=+ep' ~/.local/bin/noisetorch
+setcap 'CAP_SYS_RESOURCE=+ep' ~/.local/bin/noisetorch
 
 # dual boot time sync
 timedatectl set-local-rtc 1
 
 # Moving FISH config file
 echo -e "${BLU}Moving files.${NC}"
-sudo -u ${RUID} mv $HOME/gnome-setup/configs/config.fish $HOME/.config/fish/config.fish
+mv /home/${RUID}/gnome-setup/configs/config.fish /home/${RUID}/.config/fish/config.fish
 
 # change default shell to fish
 sudo -u ${RUID} chsh -s /usr/bin/fish
@@ -202,9 +202,9 @@ sudo -u ${RUID} chsh -s /usr/bin/fish
 sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gnome-extensions disable ding@rastersoft.com
 
 # just perfection
-sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gnome-extension enable just-perfection-desktop@just-perfection
+sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gnome-extension enable just-perfection-desktop@just-perfection.com
 
 # load dash to panel settings
-sudo -u ${RUID} dconf load /org/gnome/shell/extensions/dash-to-panel/ < /home/${RUID}/gnome-setup/configs/dash-to-panel-config
+sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" dconf load /org/gnome/shell/extensions/dash-to-panel/ < /home/${RUID}/gnome-setup/configs/dash-to-panel-config
 
 echo -e "${BLU}COMPLETE.${NC}"
