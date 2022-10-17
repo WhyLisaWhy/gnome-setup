@@ -157,7 +157,9 @@ then
     sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gnome-extensions disable pop-cosmic@system76.com
 
  else
-    echo "${RED}Choose 1 or 2 retard. Re-run the script.${NC}"
+    echo "${RED}
+    Choose 1 or 2 retard. Re-running the script.
+    ${NC}"
     
     # return to distro select
     exec bash "$0" "$@"
@@ -182,7 +184,7 @@ wget https://github.com/noisetorch/NoiseTorch/releases/download/v0.12.2/NoiseTor
 
 tar -C $HOME -h -xzf NoiseTorch_x64_v0.12.2.tgz
 
-gtk-update-icon-cache
+sudo -u ${RUID} gtk-update-icon-cache
 
 sudo setcap 'CAP_SYS_RESOURCE=+ep' ~/.local/bin/noisetorch
 
@@ -191,15 +193,18 @@ timedatectl set-local-rtc 1
 
 # Moving FISH config file
 echo -e "${BLU}Moving files.${NC}"
-sudo -u ${RUID} mv $HOME/gnome-setup/configs/config.fish $HOME/.config/fish
+sudo -u ${RUID} mv $HOME/gnome-setup/configs/config.fish $HOME/.config/fish/config.fish
 
 # change default shell to fish
-chsh -s /usr/bin/fish
+sudo -u ${RUID} chsh -s /usr/bin/fish
 
 # desktop icons
 sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gnome-extensions disable ding@rastersoft.com
 
+# just perfection
+sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gnome-extension enable just-perfection-desktop@just-perfection
+
 # load dash to panel settings
-dconf load /org/gnome/shell/extensions/dash-to-panel/ < $HOME/gnome-setup/configs/dash-to-panel-config
+sudo -u ${RUID} dconf load /org/gnome/shell/extensions/dash-to-panel/ < /home/${RUID}/gnome-setup/configs/dash-to-panel-config
 
 echo -e "${BLU}COMPLETE.${NC}"
