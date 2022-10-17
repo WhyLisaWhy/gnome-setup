@@ -194,6 +194,7 @@ timedatectl set-local-rtc 1
 
 # Moving FISH config file
 echo -e "${BLU}Moving files.${NC}"
+mkdir /home/${RUID}/.config/fish
 mv /home/${RUID}/gnome-setup/configs/config.fish /home/${RUID}/.config/fish/config.fish
 
 # change default shell to fish
