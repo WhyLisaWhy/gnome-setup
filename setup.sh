@@ -192,13 +192,13 @@ setcap 'CAP_SYS_RESOURCE=+ep' ~/.local/bin/noisetorch
 # dual boot time sync
 timedatectl set-local-rtc 1
 
+# change default shell to fish
+sudo -u ${RUID} chsh -s /usr/bin/fish
+
 # Moving FISH config file
 echo -e "${BLU}Moving files.${NC}"
 mkdir /home/${RUID}/.config/fish
 mv /home/${RUID}/gnome-setup/configs/config.fish /home/${RUID}/.config/fish/config.fish
-
-# change default shell to fish
-sudo -u ${RUID} chsh -s /usr/bin/fish
 
 # desktop icons
 sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gnome-extensions disable ding@rastersoft.com
