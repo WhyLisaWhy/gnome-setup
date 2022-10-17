@@ -14,6 +14,8 @@ RUSER_UID=$(id -u ${RUID})
 
 # END TEST
 
+main() {
+
 # Distro choice
 echo "What is your Distro:
 1) Nobara OS
@@ -21,6 +23,7 @@ echo "What is your Distro:
 
 # user distro input
 read -p "Select a number: " DISTRO
+}
 
 if [ "$DISTRO" == "1" ]
 then
@@ -162,6 +165,9 @@ then
  
 else
     echo "${RED}Choose 1 or 2 retard. Re-run the script.${NC}"
+    
+    # restart script
+    main
 fi
 
 echo -e "${BLU}Install complete. Installing flatpaks. This may take a while...${NC}"
