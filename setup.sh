@@ -59,7 +59,7 @@ then
     # Moving Nobara icon to Pictures directory for dash-to-panel
     echo -e "${BLU}Install complete. Moving files...${NC}"
     sudo mv $HOME/gnome-setup/logo-svg/Nobara-logo.svg /usr/share/icons/Dash-to-panel-icon.svg
-    
+
     # hostname
     echo -e "${BLU}Files moved to correct locations. Setting hostname...${NC}"
     sudo hostnamectl set-hostname nobara-5800x
@@ -74,25 +74,25 @@ then
 
     # openweather
     sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gnome-extensions enable openweather-extension@jenslody.de
-    
+
     # applying yaru icons
     sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gsettings set org.gnome.desktop.interface icon-theme Yaru-blue-dark
-    
+
     # applying yaru cursor
     sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gsettings set org.gnome.desktop.interface cursor-theme Yaru
-    
+
     # clock settings
-    sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gsettings set org.gnome.desktop.interface clock-show-weekday 
-    
+    sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gsettings set org.gnome.desktop.interface clock-show-weekday
+
     # legacy application theme
     sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gsettings set org.gnome.desktop.interface gtk-theme Yaru-blue-dark
-    
+
     # sound theme setting
     sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gsettings set org.gnome.desktop.sound theme-name Yaru
-    
+
     # increase parallel download
     sudo sed -i 's/max_parallel_downloads=6/max_parallel_downloads=10/' /etc/dnf/dnf.conf
-    
+
     # default dnf to yes
     echo defaultyes=True | sudo tee -a /etc/dnf/dnf.conf
 
@@ -124,7 +124,7 @@ then
     echo -e "${BLU}Install complete. Installing input remapper.${NC}"
     wget "https://github.com/sezanzeb/input-remapper/releases/download/1.5.0/input-remapper-1.5.0_all.deb"
     sudo apt-get install /home/$USER/gnome-setup/input-remapper-1.5.0.all.deb -y
-    
+
     # onedrive
     echo -e "${BLU}Install complete. Installing onedriver.${NC}"
     echo 'deb http://download.opensuse.org/repositories/home:/jstaf/xUbuntu_22.04/ /' | sudo tee /etc/apt/sources.list.d/home:jstaf.list
@@ -137,10 +137,10 @@ then
     flatpak install flathub com.mattjakeman.ExtensionManager -y
 
     echo -e "${BLU}Install complete. Moving files...${NC}"
-    
+
     # Moving POP icon to Pictures directory for dash-to-panel
     sudo mv $HOME/gnome-setup/logo-svg/Pop-os-logo.svg /usr/share/icons/Dash-to-panel-icon.svg
-    
+
     # hostname
     echo -e "${BLU}Files moved to correct locations. Setting hostname...${NC}"
     sudo hostnamectl set-hostname pop-5800x
@@ -156,15 +156,15 @@ then
     # pop cosmic
     sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gnome-extensions disable pop-cosmic@system76.com
 
- else
+else
     echo "${RED}
     Choose 1 or 2 retard. Re-running the script.
     ${NC}"
-    
-    # return to distro select
-    exec bash "$0" "$@"
 
-    fi
+    # return to distro select
+    exec bash "$0"
+
+fi
 
 echo -e "${BLU}Install complete. Installing flatpaks. This may take a while...${NC}"
 
