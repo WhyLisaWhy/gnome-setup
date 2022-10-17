@@ -11,29 +11,34 @@ cd gnome-setup
 ```
 ##### Run Script
 ```bash
-./setup.sh
+sudo ./setup.sh
 ```
 
-### Import Dash-to-Panel config 
-***No longer necessary, now done automatically***
+### What it does 
+***User agnostic - will work for anyone using GNOME Nobara/Pop OS***
+
 ```bash
-Right click Panel -> Dash to Panel Settings -> About -> Import from file
-Import file gnome-setup/configs/dash-to-panel-config
+Changes max parallel from 6 to 10
+Changes dnf default from no to yes
+
+Removes packages OnlyOffice cheese rhythmbox Gnome-Videos Gnome-Photos
+Installs packages libreoffice ffmpegthumbnailer gthumb timeshift yaru-theme cabextract 
+  xorg-x11-font-utils pam-u2f pamu2fcfg deja-dup fish python3-evdev gtksourceview4 python3-devel 
+  python3-pydantic python3-pydbus veracrypt noisetorch input-remapper pycharm onedriver vscode
+  gthumb fish-sh discord
+Installs fonts google-roboto mozilla-fira fira-code-fonts
+
+Enables gnome-extensions gsconnect openweather just perfection
+Disables gnome-extensions arcmenu pop-cosmic cosmic-dock desktop-icons
+
+Enables Yaru-theme
+
+Changes default shell to fish
+
+Loads dash-to-panel config
 ```
 
-### DNF config 
-***No longer necessary, now done automatically***
 
-Edit configuration: `sudo nano /etc/dnf/dnf.conf`
-
-- Add settings to optimize download speed:
-  ```conf
-  max_parallel_downloads=10
-  ```
-- Add some quality of life settings:
-  ```conf
-  defaultyes=True
-  ```
  
 ### Gnome Extensions must have
 - [AppIndicator and KStatusNotifierItem Support](https://extensions.gnome.org/extension/615/appindicator-support/): Adds AppIndicator, KStatusNotifierItem and legacy Tray icons support to the Shell
