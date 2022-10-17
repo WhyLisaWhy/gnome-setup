@@ -12,12 +12,15 @@ RUID=$(who | awk 'FNR == 1 {print $1}')
 RUSER_UID=$(id -u ${RUID})
 
 # Distro choice
-echo "${BLU}What is your Distro:
+echo "What is your Distro:
 1) Nobara OS
-2) Pop OS${NC}"
+2) Pop OS"
 
 # user distro input
 read -p "Select a number: " DISTRO
+
+# user hostname input
+read -p "Enter desired hostname: " HOSTNAME
 
 if [ "$DISTRO" == "1" ]
 then
@@ -67,7 +70,7 @@ then
 
     # hostname
     echo -e "${BLU}Files moved to correct locations. Setting hostname...${NC}"
-    hostnamectl set-hostname nobara-5800x
+    hostnamectl set-hostname $HOSTNAME
 
     echo -e "${BLU}Install complete. Disabling unwanted gnome extensions, enabling wanted gnome extensions...${NC}"
 
@@ -144,7 +147,7 @@ then
 
     # hostname
     echo -e "${BLU}Files moved to correct locations. Setting hostname...${NC}"
-    hostnamectl set-hostname pop-5800x
+    hostnamectl set-hostname $HOSTNAME
 
     echo -e "${BLU}Install complete. Disabling unwanted gnome extensions...${NC}"
 
@@ -187,7 +190,7 @@ tar -C /home/${RUID} -h -xzf NoiseTorch_x64_v0.12.2.tgz
 
 sudo -u ${RUID} DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/${RUSER_UID}/bus" gtk-update-icon-cache
 
-setcap 'CAP_SYS_RESOURCE=+ep' ~/.local/bin/noisetorch
+sudo -u ${RUID} setcap 'CAP_SYS_RESOURCE=+ep' ~/.local/bin/noisetorch
 
 # dual boot time sync
 timedatectl set-local-rtc 1
